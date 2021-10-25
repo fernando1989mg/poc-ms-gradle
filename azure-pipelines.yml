@@ -10,20 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarcloud'
-    organization: 'fernando1989mg'
-    scannerMode: 'Other'
-    extraProperties: 'sonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml'
+
 - script: ./gradlew build
   displayName: 'run test'
-- script: ls build/reports/
+- script: ./gradlew sonarqube
   displayName: 'listar'
-- script: ./gradlew test
-  displayName: 'run test'
-- script: ls build/reports
-  displayName: 'listar'
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
