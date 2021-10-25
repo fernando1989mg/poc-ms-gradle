@@ -29,7 +29,7 @@ steps:
     tasks: 'build'
 - script: ls -l
   displayName: 'listar'
-- script: ls build/reports/test
+- script: ls build/reports/tests
   displayName: 'listar'
 - script: ./gradlew test
   displayName: 'run test'
