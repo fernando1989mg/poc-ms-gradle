@@ -16,20 +16,9 @@ steps:
     organization: 'fernando1989mg'
     scannerMode: 'Other'
     extraProperties: 'sonar.coverage.jacoco.xmlReportPaths=./build/jacoco/test/jacocoTestReport.xml'
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
-- script: ls -l
-  displayName: 'listar'
-- script: ls build/reports/tests/test
+- script: ./gradlew build
+  displayName: 'run test'
+- script: ls build/reports/
   displayName: 'listar'
 - script: ./gradlew test
   displayName: 'run test'
