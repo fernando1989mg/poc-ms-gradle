@@ -10,17 +10,17 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  SONAR_TOKEN: d2a640715a569ebddf15d4869e87e3d0b22c0ecf
+  SONAR_TOKEN: $(SONAR_TOKEN)
 
 steps:
 
 - script: ./gradlew build
   displayName: 'build project'
-- script: export SONAR_TOKEN=d2a640715a569ebddf15d4869e87e3d0b22c0ecf
+- script: export SONAR_TOKEN=$(SONAR_TOKEN)
   displayName: 'set sonarcloud token'
 - script: echo $SONAR_TOKEN
   displayName: 'print var'
 - script: ./gradlew sonarqube
   displayName: 'send report to sonarcloud'
   env:
-    SONAR_TOKEN: d2a640715a569ebddf15d4869e87e3d0b22c0ecf
+    SONAR_TOKEN: $(SONAR_TOKEN)
