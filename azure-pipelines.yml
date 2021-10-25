@@ -12,6 +12,8 @@ pool:
 steps:
 
 - script: ./gradlew build
-  displayName: 'run test'
+  displayName: 'build project'
+- script: export SONAR_TOKEN=$(SONAR_TOKEN)
+  displayName: 'set sonarcloud token'
 - script: ./gradlew sonarqube
-  displayName: 'listar'
+  displayName: 'send report to sonarcloud'
