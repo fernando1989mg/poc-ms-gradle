@@ -15,7 +15,7 @@ steps:
     SonarCloud: 'sonarcloud'
     organization: 'fernando1989mg'
     scannerMode: 'Other'
-    extraProperties: 'sonar.coverage.jacoco.xmlReportPaths=./build/jacoco/test/jacocoTestReport.xml'
+    extraProperties: 'sonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml'
 - script: ./gradlew build
   displayName: 'run test'
 - script: ls build/reports/
