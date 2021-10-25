@@ -29,11 +29,11 @@ steps:
     tasks: 'build'
 - script: ls -l
   displayName: 'listar'
-- script: ls build/reports/tests
+- script: ls build/reports/tests/test
   displayName: 'listar'
 - script: ./gradlew test
   displayName: 'run test'
-- script: ls build/reports/jacoco/test
+- script: ls build/reports
   displayName: 'listar'
 - task: SonarCloudPublish@1
   inputs:
