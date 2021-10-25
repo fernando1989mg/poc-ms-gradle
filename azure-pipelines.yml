@@ -29,8 +29,10 @@ steps:
     tasks: 'build'
 - script: ls -l
   displayName: 'listar'
-- script: ls build/reports/jacoco/test
+- script: ls build/reports
   displayName: 'listar'
+- script: ./gradlew test
+  displayName: 'run test'
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
