@@ -9,9 +9,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  SONAR_TOKEN: $(SONAR_TOKEN)
-
 steps:
 
 - script: ./gradlew build
@@ -22,5 +19,3 @@ steps:
   displayName: 'print var'
 - script: ./gradlew sonarqube
   displayName: 'send report to sonarcloud'
-  env:
-    SONAR_TOKEN: $(SONAR_TOKEN)
